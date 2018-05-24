@@ -4,7 +4,7 @@
 #include"cpucycles.h"
 #include"poly.h"
 
-uint64_t clock_sujoy1, clock_sujoy2, clock_samp, clock_arith, clock_load;
+uint64_t clock_samp, clock_arith, clock_load;
 
 void indcpa_keypair(unsigned char *pk, unsigned char *sk);
 

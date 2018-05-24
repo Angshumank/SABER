@@ -155,8 +155,6 @@ void GenSecret(uint16_t r[LWR_K][LWR_N],const unsigned char *seed){
 void indcpa_kem_keypair(unsigned char *pk, unsigned char *sk)
 {
  
-  //clock_sujoy1 = cpucycles();
-
   polyvec a[LWR_K];
 
   uint16_t skpv1[LWR_K][LWR_N];
@@ -201,12 +199,6 @@ void indcpa_kem_keypair(unsigned char *pk, unsigned char *sk)
   clock_matrix=clock_matrix+(clock2-clock1);
 
 
-  //clock_sujoy2 = cpucycles();	
-  //clock_load = clock_load + clock_sujoy2 - clock_sujoy1;
-
-  
-  //clock_sujoy1 = cpucycles();
-
  //poly_getnoise4x(skpv1[0], skpv1[1], skpv1[2], noiseseed, 0x0001, 0x0002, 0x0003, 0x0004);
  clock1=cpucycles();
  GenSecret(skpv1,noiseseed);
@@ -222,11 +214,6 @@ void indcpa_kem_keypair(unsigned char *pk, unsigned char *sk)
 	}
 
   }
-
-  //clock_sujoy2 = cpucycles();	
-  //clock_samp = clock_samp + clock_sujoy2 - clock_sujoy1;
-
- //clock_sujoy1 = cpucycles();	
 
   for(i=0;i<LWR_K;i++){ //load the vector a in avx
 	  for(j=0;j<LWR_K;j++){
@@ -292,16 +279,12 @@ void indcpa_kem_keypair(unsigned char *pk, unsigned char *sk)
 		pk[LWR_POLYVECCOMPRESSEDBYTES + i]=seed[i]; 
 	}
 
- //clock_sujoy2 = cpucycles();	
- //clock_arith = clock_arith + clock_sujoy2 - clock_sujoy1;
-
 }
 
 
 void indcpa_kem_enc(unsigned char *message_received, unsigned char *noiseseed, const unsigned char *pk, unsigned char *ciphertext)
 { 
 
-	clock_sujoy1 = cpucycles();
 
 	uint32_t i,j,k;
 	polyvec a[LWR_K];		// skpv;
@@ -499,8 +482,6 @@ void indcpa_kem_enc(unsigned char *message_received, unsigned char *noiseseed, c
 		ciphertext[LWR_POLYVECCOMPRESSEDBYTES + j] = rec_c[j];
 	}
 
-	clock_sujoy2 = cpucycles();
-	clock_load = clock_load + clock_sujoy2 - clock_sujoy1;
 }
 
 

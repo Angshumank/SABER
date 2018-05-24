@@ -170,7 +170,7 @@ int test_kem_cca()
   	CLOCK1 = 0;
         CLOCK2 = 0;
 	CLOCK_kp = CLOCK_enc = CLOCK_dec = 0;
-        clock_sujoy1 = clock_sujoy2 = clock_arith = clock_samp = clock_load = 0;
+        clock_arith = clock_samp = clock_load = 0;
 
 	time_t t;
    	// Intializes random number generator
