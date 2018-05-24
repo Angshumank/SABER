@@ -162,7 +162,7 @@ int test_kem_cca()
   unsigned char entropy_input[48];
 	
   uint64_t i, j, repeat;
-  repeat=100000;
+  repeat=10000;
 
   uint64_t CLOCK1,CLOCK2;
   uint64_t CLOCK_kp,CLOCK_enc,CLOCK_dec;
@@ -223,9 +223,6 @@ int test_kem_cca()
 	
 	printf("Repeat is : %ld\n",repeat);
 	printf("Average times key_pair: \t %lu \n",CLOCK_kp/repeat);
-	//printf("Average times key_pair-->load: \t %lu \n", clock_load/repeat);
-	//printf("Average times key_pair-->sampling: \t %lu \n", clock_samp/repeat);
-	//printf("Average times key_pair-->matrix_vec_mult: \t %lu \n", clock_arith/repeat);
 
 	printf("Average times enc: \t %lu \n",CLOCK_enc/repeat);
 	printf("Average times dec: \t %lu \n",CLOCK_dec/repeat);
